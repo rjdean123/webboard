@@ -2,19 +2,21 @@ import os
 
 from flask import Flask
 from flask import request
-app = Flask(__name__)
+from flask import render_template
 
 from helpers import RequestHandler
 
+app = Flask(__name__)
+
 @app.route("/", methods=['GET'])
-def index():
+def board():
     if request.method == 'GET':
     	return render_template("board.html")
     else:
     	return 'unsupported http method'
 
 @app.route("/api", methods=['GET', 'POST'])
-def index():
+def api():
     if request.method == 'GET':
     	return handler.handle_get()
     elif request.method == 'POST':

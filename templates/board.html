@@ -3,13 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title>WEBBOARD</title>
-    <script src="boardcontroller.js"></script>
+    <script src="{{ url_for('static', filename = 'boardcontroller.js') }}"></script>
   </head>
   <body>
-  
-  <h1>WEBBOARD</h1>
 
-  <canvas id="board" width="100px" height="1000px"></canvas>
+  <canvas id="board" width="1920px" height="1080px" style="border: 1px solid black"></canvas>
 
   </body>
 </html>
