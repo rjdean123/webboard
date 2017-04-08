@@ -1,6 +1,10 @@
 window.addEventListener('load', main);
 
 function main() {
+	var canvas = document.getElementById('board');
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+
 	get_and_draw_coordinates();
 }
 
@@ -23,6 +27,8 @@ function handle_response(raw_coordinates_str) {
 
 	var xcoords = [];
 	var ycoords = [];
+	var phonewidths = [];
+	var phoneheights = [];
 
 	for (var i = 0; i < raw_coordinates.length; i++) {
 		var rc = raw_coordinates[i];
@@ -37,12 +43,14 @@ function handle_response(raw_coordinates_str) {
 
 		xcoords.push(parseInt(coords[0]));
 		ycoords.push(parseInt(coords[1]));
+		phonewidths.push(parseInt(coords[2]));
+		phoneheights.push(parseInt(coords[3]));
 	}
 
-	draw_coords(xcoords, ycoords);
+	draw_coords(xcoords, ycoords, phonewidths, phoneheights);
 }
 
-function draw_coords(xcoords, ycoords) {
+function draw_coords(xcoords, ycoords, phonewidths, phoneheights) {
 	var canvas = document.getElementById('board');
 
 	var cwidth = canvas.width;
@@ -52,7 +60,12 @@ function draw_coords(xcoords, ycoords) {
 
 	for (var i = 0; i < xcoords.length && i < ycoords.length; i++) {
 		var x = xcoords[i];
-		var y = cheight - ycoords[i];
+		var y = ycoords[i];
+		var pwidth = phonewidths[i];
+		var pheight = phoneheights[i];
+
+		y = pheight - y;
+
 		var r = 2;
 
 		context.fillStyle = "#000000";

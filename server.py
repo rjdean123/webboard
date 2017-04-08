@@ -24,7 +24,16 @@ def api():
     	return handler.handle_get()
     elif request.method == 'POST':
     	raw_coordinates_str = request.form['coordinates']
-    	return handler.handle_post(raw_coordinates_str)
+    	phone_width = request.form['width']
+    	phone_height = request.form['height']
+    	return handler.handle_post(raw_coordinates_str, phone_width, phone_height)
+    else:
+    	return 'unsupported http method'
+
+@app.route("/clear", methods=['DELETE'])
+def clear():
+    if request.method == 'DELETE':
+    	return handler.handle_clear()
     else:
     	return 'unsupported http method'
 
