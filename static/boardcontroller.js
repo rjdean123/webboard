@@ -51,7 +51,7 @@ function draw_coords(xcoords, ycoords) {
 	var context = canvas.getContext("2d");
 
 	for (var i = 0; i < xcoords.length && i < ycoords.length; i++) {
-		var x = cwidth - xcoords[i];
+		var x = xcoords[i];
 		var y = cheight - ycoords[i];
 		var r = 2;
 
