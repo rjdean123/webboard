@@ -6,7 +6,14 @@ app = Flask(__name__)
 
 from helpers import RequestHandler
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET'])
+def index():
+    if request.method == 'GET':
+    	return render_template("board.html")
+    else:
+    	return 'unsupported http method'
+
+@app.route("/api", methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
     	return handler.handle_get()
@@ -14,7 +21,7 @@ def index():
     	raw_coordinates_str = request.form['coordinates']
     	return handler.handle_post(raw_coordinates_str)
     else:
-    	return 'unsupported method'
+    	return 'unsupported http method'
 
 if __name__ == '__main__':
 	handler = RequestHandler()
