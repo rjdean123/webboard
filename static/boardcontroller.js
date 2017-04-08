@@ -7,15 +7,17 @@ function main() {
 
 	get_and_draw_coordinates();
 
-	setInterval(get_and_draw_coordinates, 5000);
+	var old_coords = new Set();
+
+	setInterval(function() { get_and_draw_coordinates(old_coords) }, 5000);
 }
 
-function get_and_draw_coordinates() {
+function get_and_draw_coordinates(old_coords) {
 	var xhr = new XMLHttpRequest();
 
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			handle_response(xhr.responseText);
+			handle_response(xhr.responseText, old_coords);
 		}
 	};
 
@@ -24,7 +26,7 @@ function get_and_draw_coordinates() {
 
 }
 
-function handle_response(raw_coordinates_str) {
+function handle_response(raw_coordinates_str, old_coords) {
 	var raw_coordinates = raw_coordinates_str.split(";");
 
 	var xcoords = [];
@@ -40,6 +42,14 @@ function handle_response(raw_coordinates_str) {
 		}
 
 		rc = rc.substring(1, rc.length - 1);
+
+		if (old_coords && old_coords.has(rc)) {
+			continue;
+		} else if (old_coords) {
+			old_coords.add(rc);
+		}
+
+		console.log(old_coords);
 
 		coords = rc.split(",");
 
