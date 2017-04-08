@@ -66,6 +66,9 @@ function draw_coords(xcoords, ycoords, phonewidths, phoneheights) {
 
 		y = pheight - y;
 
+		x = (x/pwidth)*cwidth;
+		y = (y/pheight)*cheight;
+
 		var r = 2;
 
 		context.fillStyle = "#000000";
