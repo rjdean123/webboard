@@ -6,6 +6,8 @@ function main() {
 	canvas.height = window.innerHeight;
 
 	get_and_draw_coordinates();
+
+	setInterval(get_and_draw_coordinates, 5000);
 }
 
 function get_and_draw_coordinates() {
