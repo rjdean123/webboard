@@ -12,7 +12,7 @@ function main() {
 
 	// for (var i = 0; i < 1000; i++) {
 	// 	context.fillStyle = "#000000";
-	// 	context.beginPath();
+	// 	getContext.beginPath();
 	// 	context.arc(i,i,2,0,Math.PI*2,true);
 	// 	context.closePath();
 	// 	context.fill();
