@@ -49,8 +49,6 @@ function handle_response(raw_coordinates_str, old_coords) {
 			old_coords.add(rc);
 		}
 
-		console.log(old_coords);
-
 		coords = rc.split(",");
 
 		xcoords.push(parseInt(coords[0]));
