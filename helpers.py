@@ -10,4 +10,5 @@ class RequestHandler:
 
 
 	def handle_post(self, raw_coorindates_str):
-		return raw_coorindates_str
+		print(raw_coorindates_str)
+		return "success"
