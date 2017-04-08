@@ -7,8 +7,8 @@ class RequestHandler:
 		return self.prepare_get_response()
 
 
-	def handle_post(self, raw_coorindates_str):
-		self.process_post_data(raw_coorindates_str)
+	def handle_post(self, raw_coorindates_str, phone_width, phone_height):
+		self.process_post_data(raw_coorindates_str, phone_width, phone_height)
 		return "success"
 
 
