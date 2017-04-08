@@ -37,8 +37,8 @@ def clear():
     else:
     	return 'unsupported http method'
 
-if __name__ == '__main__':
-	handler = RequestHandler()
-	app.debug = True
-	port = int(os.environ.get("PORT", 5000))
-	app.run(host='0.0.0.0', port=port)
+if __name__ == 'server':
+    handler = RequestHandler()
+    app.debug = True
+	#port = int(os.environ.get("PORT", 5000))
+	#app.run(host='0.0.0.0', port=port)
