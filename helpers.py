@@ -4,12 +4,7 @@ class RequestHandler:
 		self.drawn_coordinates = set()
 
 	def handle_get(self):
-		response = "no coordinates drawn yet"
-		if len(self.drawn_coordinates) > 0:
-			response = "coordinates drawn so far:"
-			for dc in self.drawn_coordinates:
-				response = response + " " + dc
-		return response
+		return prepare_get_response()
 
 
 	def handle_post(self, raw_coorindates_str):
@@ -17,10 +12,19 @@ class RequestHandler:
 		return "success"
 
 
+	def prepare_get_response(self):
+		if len(self.drawn_coordinates) == 0:
+			return ""
+		response = ""
+		for dc in self.drawn_coordinates:
+			response = response + "(" + dc + ");"
+		return response
+
+
 	def process_post_data(self, raw_coorindates_str):
 		raw_coordinates = raw_coorindates_str.split(';')
 		for rc in raw_coordinates:
 			if len(rc) <= 3:
 				continue
-			rc = rc[1:-1]
+			rc = rc[1:-1].strip()
 			self.drawn_coordinates.add(rc)
