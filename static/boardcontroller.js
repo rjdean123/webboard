@@ -86,6 +86,6 @@ function draw_coords(xcoords, ycoords, phonewidths, phoneheights) {
 		// context.arc(x,y,r,0,Math.PI*2,true);
 		// context.closePath();
 		// context.fill();
-		context.fillRect(x,y,1,1);
+		context.fillRect(x,y,2,2);
 	}	
 }
