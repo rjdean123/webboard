@@ -4,7 +4,7 @@ class RequestHandler:
 		self.drawn_coordinates = set()
 
 	def handle_get(self):
-		return prepare_get_response()
+		return self.prepare_get_response()
 
 
 	def handle_post(self, raw_coorindates_str):
