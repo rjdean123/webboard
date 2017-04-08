@@ -51,10 +51,10 @@ function draw_coords(xcoords, ycoords) {
 	var context = canvas.getContext("2d");
 
 	for (var i = 0; i < xcoords.length && i < ycoords.length; i++) {
-		var x = xcoords[i];
-		var y = ycoords[i];
+		var x = cwidth - xcoords[i];
+		var y = cheight - ycoords[i];
 		var r = 2;
-		
+
 		context.fillStyle = "#000000";
 		context.beginPath();
 		context.arc(x,y,r,0,Math.PI*2,true);
