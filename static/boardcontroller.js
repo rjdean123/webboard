@@ -73,10 +73,11 @@ function draw_coords(xcoords, ycoords, phonewidths, phoneheights) {
 
 		var r = 2;
 
-		context.fillStyle = "#000000";
-		context.beginPath();
-		context.arc(x,y,r,0,Math.PI*2,true);
-		context.closePath();
-		context.fill();
+		// context.fillStyle = "#000000";
+		// context.beginPath();
+		// context.arc(x,y,r,0,Math.PI*2,true);
+		// context.closePath();
+		// context.fill();
+		context.fillRect(x,y,1,1);
 	}	
 }
